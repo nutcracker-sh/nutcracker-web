@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nutcracker — Mobile Security & Offensive Threat Intelligence</title>
+  <meta name="description" content="Nutcracker is a powerful, modular and extensible framework for mobile security analysis. Downloads APKs, detects and bypasses anti-root/RASP protections, extracts secrets and launches OSINT recon." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/nutcracker-emblem.png" alt="nutcracker logo" class="logo-icon-img" />
+        <img src="assets/nutcracker.png" alt="nutcracker" class="logo-name-img" /><span class="logo-tld">.sh</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#installation" class="nav-link">Installation</a></li>
+        <li><a href="#usage" class="nav-link">Usage</a></li>
+        <li><a href="#docs" class="nav-link">Docs</a></li>
+        <li>
+          <a href="https://github.com/drneox/nutcracker" target="_blank" rel="noopener" class="nav-link nav-gh">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="mountains">
+        <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,200 120,80 240,140 360,50 480,110 600,30 720,90 840,20 960,70 1080,10 1200,60 1320,40 1440,80 1440,200" fill="rgba(0,255,65,0.06)"/>
+          <polygon points="0,200 80,120 200,160 320,90 440,140 560,60 680,120 800,40 920,100 1040,30 1160,80 1280,50 1440,100 1440,200" fill="rgba(0,255,65,0.04)"/>
+          <polyline points="0,200 120,80 240,140 360,50 480,110 600,30 720,90 840,20 960,70 1080,10 1200,60 1320,40 1440,80" fill="none" stroke="rgba(0,255,65,0.15)" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-content container">
+      <div class="hero-text">
+        <div class="hero-badge">Mobile Security &amp; Offensive Threat Intelligence</div>
+        <h1 class="hero-title">
+          nut<span class="accent">cracker</span><span class="cursor blink">_</span>
+        </h1>
+        <p class="hero-tagline">Fast. Modular. Brutal.</p>
+        <p class="hero-desc">
+          Nutcracker is a powerful, modular and extensible framework designed for mobile security analysis and offensive threat intelligence.
+          Detects and bypasses anti-root/RASP protections, extracts hardcoded secrets and launches OSINT recon — all in one tool.
+        </p>
+        <div class="hero-cta">
+          <a href="https://github.com/drneox/nutcracker" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+          <a href="#installation" class="btn btn-secondary">
+            <span class="btn-icon">&#62;_</span> Quick Start
+          </a>
+        </div>
+      </div>
+      <div class="hero-terminal">
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <span class="terminal-title">nutcracker — zsh</span>
+          </div>
+          <div class="terminal-body">
+
+            <!-- Banner real del proyecto -->
+            <div class="nut-banner">
+              <div class="nut-banner-inner">
+                <div class="nut-char">
+                  <img
+                    src="assets/nutcracker-terminal.png"
+                    alt="nutcracker terminal pixel art"
+                    class="nut-logo-img"
+                    style="width:120px;height:auto;image-rendering:pixelated;"
+                  />
+                  <div class="nut-logo-fallback" style="display:none">&#129335;</div>
+                </div>
+                <div class="nut-info">
+                  <div class="nut-title">NUTCRACKER</div>
+                  <div class="nut-sub"><span class="nut-star">★</span> Mobile Security &amp; Offensive Threat Intelligence <span class="nut-star">★</span></div>
+                  <div class="nut-url">v0.1 &nbsp;·&nbsp; github.com/drneox/nutcracker</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="terminal-lines" id="terminalLines">
+              <div class="t-line"><span class="prompt">❯</span> <span class="cmd">python nutcracker.py scan com.target.app</span></div>
+              <div class="t-line output"><span class="accent">[+]</span> Downloading APK from Google Play...</div>
+              <div class="t-line output"><span class="accent">[+]</span> Protection detected: <span class="warn">anti-root / RASP protection</span></div>
+              <div class="t-line output"><span class="accent">[+]</span> Script generated:<span class="warn">frida_scripts/bypass_com.target.app.js</span></div>
+              <div class="t-line output"><span class="accent">[+]</span> Launching Frida bypass...</div>
+              <div class="t-line output"><span class="success">[✓]</span> Protection bypassed. Decompiling...</div>
+              <div class="t-line output"><span class="success">[✓]</span> Leak scan: enabled</div>
+              <div class="t-line output"><span class="accent">[✓]</span> 32 vulnerabilities found<span class="warn">(1 CRITICAL  7 HIGH  24 MEDIUM)</span></div>
+
+              <div class="t-line output"><span class="success">[✓]</span> Report saved: <span class="path">reports/com.target.app.pdf</span></div>
+              <div class="t-line"><span class="prompt">❯</span> <span class="cursor blink">▋</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats container">
+      <div class="stat"><span class="stat-num">38+</span><span class="stat-label">Regex Rules</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label">RASP Detectors</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span class="stat-num">7+</span><span class="stat-label">OSINT Sources</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span class="stat-num">MIT</span><span class="stat-label">License</span></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Features</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+          </div>
+          <h3>Fast</h3>
+          <p>Optimized for performance and efficiency. Parallel analysis pipelines with intelligent caching. Built with speed in mind.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.959.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z"/></svg>
+          </div>
+          <h3>Modular</h3>
+          <p>Highly modular architecture with feature flags. Enable or disable any module via <code>config.yaml</code>. Easy extension and customization.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          </div>
+          <h3>Security Focused</h3>
+          <p>Designed with security at its core. Detects DexGuard, Arxan, Appdome, Promon Shield, RootBeer and more. Built for real-world security workflows.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3>OSINT Recon</h3>
+          <p>Subdomain enumeration via crt.sh, public leaks on GitHub/Postman/FOFA/Wayback, false-positive filtering and optional web searches via DuckDuckGo.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          </div>
+          <h3>PDF Reports</h3>
+          <p>Complete PDF report with cover, executive summary, anti-root analysis, RASP bypass, misconfigurations, secrets and vulnerability findings.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/></svg>
+          </div>
+          <h3>Docker Ready</h3>
+          <p>Hybrid Docker mode: run nutcracker inside a container while connecting to emulators/devices on the host. Ideal for Windows + WSL environments.</p>
+        </div>
+
+      </div>
+
+      <!-- Key features list -->
+      <div class="features-detail">
+        <h3 class="detail-title">What nutcracker can do</h3>
+        <div class="features-list-grid">
+          <ul class="feature-list">
+            <li><span class="li-accent">►</span> Downloads APKs from Google Play, APKPure or direct URL</li>
+            <li><span class="li-accent">►</span> App Bundle (AAB) support with split detection</li>
+            <li><span class="li-accent">►</span> Static protection detection: DexGuard, Arxan, Appdome, RootBeer, Promon Shield</li>
+            <li><span class="li-accent">►</span> Smart analytics SDK filtering to avoid false positives</li>
+            <li><span class="li-accent">►</span> Dynamic deobfuscation via <code>frida_server</code>, <code>gadget</code> or <code>fart</code></li>
+          </ul>
+          <ul class="feature-list">
+            <li><span class="li-accent">►</span> Vulnerability scanner: semgrep (OWASP MASTG) + 38 internal regex rules</li>
+            <li><span class="li-accent">►</span> Leak/secret search: HC rules + apkleaks + gitleaks</li>
+            <li><span class="li-accent">►</span> AndroidManifest.xml analysis: permissions, exported components</li>
+            <li><span class="li-accent">►</span> Batch mode to scan multiple apps in sequence</li>
+            <li><span class="li-accent">►</span> All modules controllable via feature flags in <code>config.yaml</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALLATION -->
+  <section id="installation" class="installation">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Installation</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="install-tabs">
+        <button class="tab-btn active" data-tab="quick">Quick Install</button>
+        <button class="tab-btn" data-tab="macos">macOS</button>
+        <button class="tab-btn" data-tab="linux">Linux</button>
+        <button class="tab-btn" data-tab="docker">Docker</button>
+      </div>
+
+      <div class="tab-content active" id="tab-quick">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="copy-btn" data-copy="git clone https://github.com/drneox/nutcracker
+cd nutcracker
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+          <pre><code><span class="c-comment"># Clone the repository</span>
+<span class="c-cmd">git clone</span> <span class="c-url">https://github.com/drneox/nutcracker</span>
+<span class="c-cmd">cd</span> nutcracker
+
+<span class="c-comment"># Create and activate virtual environment</span>
+<span class="c-cmd">python3 -m venv</span> .venv
+<span class="c-cmd">source</span> .venv/bin/activate
+
+<span class="c-comment"># Install Python dependencies</span>
+<span class="c-cmd">pip install</span> -r requirements.txt</code></pre>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-macos">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">bash · macOS (Homebrew)</span>
+            <button class="copy-btn" data-copy="brew install apkeep jadx apktool semgrep android-platform-tools
+brew install openjdk@21">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+          <pre><code><span class="c-comment"># Install system dependencies via Homebrew</span>
+<span class="c-cmd">brew install</span> apkeep        <span class="c-comment"># Download APKs from Google Play / APKPure</span>
+<span class="c-cmd">brew install</span> jadx          <span class="c-comment"># Decompile APKs to Java + XML</span>
+<span class="c-cmd">brew install</span> apktool       <span class="c-comment"># Unpack/repack APKs</span>
+<span class="c-cmd">brew install</span> semgrep       <span class="c-comment"># Static analysis (OWASP MASTG rules)</span>
+<span class="c-cmd">brew install</span> android-platform-tools  <span class="c-comment"># adb</span>
+
+<span class="c-comment"># Java 11+ required</span>
+<span class="c-cmd">brew install</span> openjdk@21</code></pre>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-linux">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">bash · Linux (Ubuntu/Debian)</span>
+            <button class="copy-btn" data-copy="sudo apt update && sudo apt install -y openjdk-21-jre-headless jadx apktool adb">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+          <pre><code><span class="c-comment"># Base tools</span>
+<span class="c-cmd">sudo apt update</span>
+<span class="c-cmd">sudo apt install</span> -y openjdk-21-jre-headless jadx apktool adb
+
+<span class="c-comment"># apkeep (official binary)</span>
+APKEEP_VERSION=<span class="c-str">"0.18.0"</span>
+<span class="c-cmd">curl</span> -L -o /tmp/apkeep.tgz \
+  <span class="c-str">"https://github.com/EFForg/apkeep/releases/download/v${APKEEP_VERSION}/apkeep-x86_64-unknown-linux-musl.tar.gz"</span>
+<span class="c-cmd">tar</span> -xzf /tmp/apkeep.tgz -C /tmp
+<span class="c-cmd">sudo install</span> /tmp/apkeep /usr/local/bin/apkeep
+
+<span class="c-comment"># semgrep (via pipx)</span>
+<span class="c-cmd">pipx install</span> semgrep</code></pre>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-docker">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">bash · Docker (hybrid mode)</span>
+            <button class="copy-btn" data-copy="docker compose build
+docker compose run --rm nutcracker">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+          <pre><code><span class="c-comment"># Build and open a container shell</span>
+<span class="c-cmd">docker compose build</span>
+<span class="c-cmd">docker compose run</span> --rm nutcracker
+
+<span class="c-comment"># Verify ADB connectivity from container</span>
+<span class="c-cmd">adb devices</span>
+<span class="c-cmd">frida-ls-devices</span>
+
+<span class="c-comment"># Run analysis from the container</span>
+<span class="c-cmd">python</span> nutcracker.py analyze downloads/app.apk</code></pre>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- USAGE -->
+  <section id="usage" class="usage">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Usage</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="usage-grid">
+        <div class="usage-block">
+          <h3 class="usage-subtitle">Basic Commands</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" data-copy="nutcracker --help">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code><span class="c-comment"># Activate virtual environment first</span>
+<span class="c-cmd">source</span> .venv/bin/activate
+
+<span class="c-comment"># Show help</span>
+<span class="c-cmd">python</span> nutcracker.py --help
+
+<span class="c-comment"># Analyze a local APK</span>
+<span class="c-cmd">python</span> nutcracker.py analyze downloads/app.apk
+
+<span class="c-comment"># Download and analyze from Google Play</span>
+<span class="c-cmd">python</span> nutcracker.py scan <span class="c-str">'com.example.app'</span>
+<span class="c-cmd">python</span> nutcracker.py analyze com.example.app
+
+<span class="c-comment"># Batch scan from a package list</span>
+<span class="c-cmd">python</span> nutcracker.py batch packages.txt</code></pre>
+          </div>
+        </div>
+
+        <div class="usage-block">
+          <h3 class="usage-subtitle">Advanced Usage</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" data-copy="python nutcracker.py launch com.example.app">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code><span class="c-comment"># Setup Google Play AAS Token (interactive)</span>
+<span class="c-cmd">python</span> nutcracker.py setup-token
+<span class="c-cmd">python</span> nutcracker.py setup-token --serial emulator-5554 --method auto
+
+<span class="c-comment"># Manual Frida bypass (launch command)</span>
+<span class="c-cmd">python</span> nutcracker.py launch com.example.app
+<span class="c-cmd">python</span> nutcracker.py launch com.example.app --serial emulator-5554
+
+<span class="c-comment"># Specify a bypass script manually</span>
+<span class="c-cmd">python</span> nutcracker.py launch com.example.app \
+  --script frida_scripts/bypass_com.example.app_....js</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCS / PIPELINE -->
+  <section id="docs" class="docs">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Docs</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="docs-grid">
+        <div class="doc-card">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/></svg>
+            Analysis Pipeline
+          </h3>
+          <div class="pipeline-diagram">
+            <div class="pipeline-step"><span class="step-badge">APK</span><span>Input: local file, Play Store URL or package ID</span></div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step"><span class="step-badge">DETECT</span><span>Anti-root / RASP protection detection</span></div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step"><span class="step-badge">BYPASS</span><span>frida-dexdump → Frida Gadget → FART</span></div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step"><span class="step-badge">SCAN</span><span>38 regex rules + semgrep integration</span></div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step"><span class="step-badge">Leaks</span><span>secret/token detection in source code</span></div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step"><span class="step-badge">OSINT</span><span>crt.sh, GitHub, Postman, FOFA, Wayback</span></div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step"><span class="step-badge accent-step">PDF</span><span>Complete technical report generation</span></div>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Configuration
+          </h3>
+          <p class="doc-desc">Copy <code>config.yaml.example</code> to <code>config.yaml</code> and adjust the values you need.</p>
+          <div class="code-block small-code">
+            <pre><code>features:
+  anti_root_analysis: <span class="c-bool">true</span>
+  decompilation:      <span class="c-bool">true</span>
+  manifest_scan:      <span class="c-bool">true</span>
+  vuln_scan:          <span class="c-bool">false</span>
+  leak_scan:          <span class="c-bool">true</span>
+  osint_scan:         <span class="c-bool">true</span>
+  report_pdf:         <span class="c-bool">true</span></code></pre>
+          </div>
+          <a href="https://github.com/drneox/nutcracker/blob/main/config.yaml.example" target="_blank" rel="noopener" class="doc-link">
+            View full config example →
+          </a>
+        </div>
+
+        <div class="doc-card">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+            PDF Report Sections
+          </h3>
+          <div class="report-sections">
+            <div class="report-row"><span class="report-badge">Cover</span><span>Protection verdict and APK metadata</span></div>
+            <div class="report-row"><span class="report-badge">Summary</span><span>Executive summary with risk per module</span></div>
+            <div class="report-row"><span class="report-badge">RASP</span><span>Detected vs bypassed protections</span></div>
+            <div class="report-row"><span class="report-badge">Config</span><span>Insecure AndroidManifest.xml analysis</span></div>
+            <div class="report-row"><span class="report-badge">Leaks</span><span>API keys, tokens, AWS/Firebase secrets</span></div>
+            <div class="report-row"><span class="report-badge">Vulns</span><span>semgrep + regex findings by severity</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/></svg>
+        </div>
+        <div class="cta-text">
+          <h2>Ready to get started?</h2>
+          <p>Check out the documentation and unleash the power of Nutcracker.</p>
+        </div>
+        <a href="https://github.com/drneox/nutcracker" target="_blank" rel="noopener" class="btn btn-primary">
+          Read the Docs
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Nutcracker Project</p>
+      <p class="footer-dev"><a href="https://carlosganoza.com" target="_blank" rel="noopener">./dev by drneox</a></p>
+      <div class="footer-links">
+        <a href="https://github.com/drneox/nutcracker" target="_blank" rel="noopener">GitHub</a>
+        <span>•</span>
+        <a href="https://github.com/drneox/nutcracker/issues" target="_blank" rel="noopener">Issues</a>
+        <span>•</span>
+        <a href="https://github.com/drneox/nutcracker/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+        <span>•</span>
+        <a href="https://github.com/drneox/nutcracker/blob/main/ROADMAP.md" target="_blank" rel="noopener">Roadmap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

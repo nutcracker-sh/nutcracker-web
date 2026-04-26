@@ -28,7 +28,7 @@
   --transition: 0.2s ease;
 }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
   background: var(--bg);
@@ -36,6 +36,7 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 .container {
@@ -234,6 +235,7 @@ body {
   padding-top: 60px;
   padding-bottom: 40px;
   position: relative;
+  width: 100%;
 }
 
 .hero-badge {
@@ -330,6 +332,7 @@ body {
 .hero-terminal {
   display: flex;
   justify-content: center;
+  min-width: 0;
 }
 
 .terminal-window {
@@ -414,6 +417,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .nut-title {
@@ -445,6 +450,8 @@ body {
   font-size: 0.75rem;
   color: var(--green-dim);
   letter-spacing: 0.03em;
+  white-space: normal;
+  word-break: break-all;
 }
 
 .t-line {
@@ -452,6 +459,9 @@ body {
   gap: 8px;
   color: var(--text);
   min-height: 1.4em;
+  white-space: normal;
+  word-break: break-word;
+  flex-wrap: wrap;
 }
 .t-line.output { color: #9a9a9a; }
 
@@ -608,6 +618,10 @@ section { padding: 80px 0; }
 }
 
 .feature-list {
+  min-width: 0;
+}
+
+.feature-list {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -617,16 +631,18 @@ section { padding: 80px 0; }
 .feature-list li {
   font-size: 0.875rem;
   color: var(--text-dim);
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+  display: block;
+  padding-left: 20px;
+  position: relative;
 }
 .li-accent {
   color: var(--green);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   margin-top: 4px;
-  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .feature-list code {
   font-family: var(--font-mono);
@@ -644,7 +660,9 @@ section { padding: 80px 0; }
   background: #0d0e0d;
   border: 1px solid var(--border-dim);
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .code-header {
@@ -694,6 +712,10 @@ section { padding: 80px 0; }
   font-size: 0.82rem;
   line-height: 1.7;
   color: var(--text);
+  white-space: pre;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
 }
 
 .code-block.small-code pre { padding: 14px; font-size: 0.78rem; }
@@ -751,12 +773,16 @@ section { padding: 80px 0; }
 /* ============================================================
    USAGE
    ============================================================ */
-.usage { background: var(--bg-card); }
+.usage { background: var(--bg-card); overflow: hidden; }
 
 .usage-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+}
+
+.usage-block {
+  min-width: 0;
 }
 
 .usage-subtitle {
@@ -1046,6 +1072,14 @@ section { padding: 80px 0; }
   .cta-icon { margin: 0 auto; }
 
   .footer .container { flex-direction: column; text-align: center; }
+
+  /* nut-banner mobile */
+  .nut-logo-img { height: 70px; width: auto; }
+  .nut-title { font-size: 1.1rem; }
+  .nut-sub { font-size: 0.68rem; }
+  .nut-url { font-size: 0.65rem; }
+  .nut-banner { padding: 10px 12px; }
+  .nut-banner-inner { gap: 12px; }
 }
 
 /* ── Fade-in animation for sections ─────────────────────────── */
